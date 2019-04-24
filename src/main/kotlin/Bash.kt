@@ -37,9 +37,6 @@ fun evalBash(@Language("Bash") cmd: String, showOutput: Boolean = false, wd: Fil
 }
 
 
-// workaround missing lines() function in java
-private fun BufferedReader.linesJ7(): Iterable<String> = lineSequence().toList()
-
 internal class StreamGobbler(var inStream: InputStream) : Thread() {
     var sb = StringBuilder()
 
@@ -47,7 +44,7 @@ internal class StreamGobbler(var inStream: InputStream) : Thread() {
         try {
             val isr = InputStreamReader(inStream)
             val br = BufferedReader(isr)
-            for (line in br.linesJ7()) {
+            for (line in br.lineSequence()) {
                 sb.append(line + "\n")
             }
         } catch (ioe: IOException) {
