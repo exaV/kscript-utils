@@ -14,8 +14,7 @@ repositories {
 }
 
 dependencies {
-    api("com.github.holgerbrandl:kutils:f0cbf365ee")
     api("org.jetbrains:annotations-java5:16.0.2")
-    api("com.xenomachina:kotlin-argparser:2.0.7")
+    runtime("com.xenomachina:kotlin-argparser:2.0.7")
     implementation(kotlin("stdlib"))
 }
